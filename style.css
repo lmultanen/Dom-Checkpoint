@@ -38,6 +38,10 @@ body {
   border: solid black 4px;
 }
 
+.container.right {
+  background-color: tan;
+}
+
 .column-header {
   font-size: 25px;
   position: relative;

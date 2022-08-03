@@ -11,7 +11,12 @@
 
 function clickCoffee(data) {
   // your code here
-  data.coffee += 1;
+  // trying to make click coffee scale somewhat with cps
+  let increment = 1;
+  if (data.hasOwnProperty('totalCPS')) {
+    increment += Math.floor(data.totalCPS/10);
+  }
+  data.coffee += increment;
   updateCoffeeView(data.coffee);
   renderProducers(data);
 }

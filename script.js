@@ -124,8 +124,8 @@ function attemptToBuyProducer(data, producerId) {
 
 function buyButtonClick(event, data) {
   // your code here
-  // getting producer ID from event object
-  if (event.target.hasOwnProperty('id')) {
+  if (event.target.tagName === "BUTTON") {
+    // getting producer ID from event object
     let producerId = event.target.id.slice(4);
     let successBool = attemptToBuyProducer(data, producerId);
     if (!successBool) {

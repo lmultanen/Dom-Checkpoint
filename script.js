@@ -21,14 +21,23 @@ function clickCoffee(data) {
 
 function unlockProducers(producers, coffeeCount) {
   // your code here
+  producers.forEach(element => {
+      if (coffeeCount >= element.price/2) {
+        element.unlocked = true;
+      }    
+  });
 }
 
 function getUnlockedProducers(data) {
   // your code here
+  return data.producers.filter(element => element.unlocked);
 }
 
 function makeDisplayNameFromId(id) {
   // your code here
+  let strArray = id.split('_');
+  return strArray.map(word => word[0].toUpperCase() + word.slice(1))
+                  .join(' ');
 }
 
 // You shouldn't need to edit this function-- its tests should pass once you've written makeDisplayNameFromId
@@ -54,6 +63,10 @@ function makeProducerDiv(producer) {
 
 function deleteAllChildNodes(parent) {
   // your code here
+  while (parent.childNodes.length > 0) {
+    parent.removeChild(parent.firstChild);
+  }
+
 }
 
 function renderProducers(data) {

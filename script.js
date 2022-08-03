@@ -71,6 +71,16 @@ function deleteAllChildNodes(parent) {
 
 function renderProducers(data) {
   // your code here
+  updateCoffeeView(data.coffee);
+  unlockProducers(data.producers, data.coffee);
+  // need to remove all children before adding unlocked producers
+  let producerContainer = document.getElementById('producer_container');
+  deleteAllChildNodes(producerContainer);
+  // appending unlocked producers to the as-of-now empty producerContainer
+  let unlockedProducers = getUnlockedProducers(data);
+  unlockedProducers.forEach(producer => {
+    producerContainer.appendChild(makeProducerDiv(producer));
+  });
 }
 
 /**************
